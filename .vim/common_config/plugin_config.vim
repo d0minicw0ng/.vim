@@ -17,7 +17,7 @@
   Bundle "git://github.com/ervandew/supertab.git"
   Bundle "git://github.com/tomtom/tcomment_vim.git"
   Bundle "git://github.com/michaeljsmith/vim-indent-object.git"
-  Bundle "git://github.com/tsaleh/vim-matchit.git"
+  " Bundle "git://github.com/tsaleh/vim-matchit.git"
   Bundle "git://github.com/kana/vim-textobj-user.git"
   Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
   Bundle "git://github.com/tpope/vim-repeat.git"
@@ -37,7 +37,7 @@
 " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
     nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-    nnoremap <Leader>t :<C-U>CtrlP<CR>
+    nnoremap <C-P> :<C-U>CtrlP<CR>
     nnoremap <Leader>T :<C-U>CtrlPTag<CR>
     let g:ctrlp_prompt_mappings = {
         \ 'PrtSelectMove("j")':   ['<down>'],
@@ -52,10 +52,6 @@
   Bundle "git://github.com/smerrill/vim-arduino.git"
     au BufNewFile,BufRead *.pde set filetype=arduino
     au BufNewFile,BufRead *.ino set filetype=arduino
-
-" Go
-  Bundle "git://github.com/jnwhiteh/vim-golang.git"
-    au BufNewFile,BufRead *.go set filetype=go
 
 " Mustache
   Bundle "git://github.com/juvenn/mustache.vim.git"
@@ -241,3 +237,13 @@
   Bundle "git://github.com/elixir-lang/vim-elixir.git"
     au BufNewFile,BufRead *.ex set filetype=elixir
     au BufNewFile,BufRead *.exs set filetype=elixir
+
+" Open Jasmine Specs
+  Bundle "git://github.com/dominicwong617/vim-open-jasmine-rice.git"
+
+" Go
+  Bundle "git://github.com/fatih/vim-go"
+    au BufNewFile,BufRead *.go set filetype=go
+
+" Golden Ratio
+  Bundle "git://github.com/roman/golden-ratio.git"
