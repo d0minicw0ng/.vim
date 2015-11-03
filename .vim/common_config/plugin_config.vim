@@ -248,3 +248,6 @@
 
 " Golden Ratio
   Bundle "git://github.com/roman/golden-ratio.git"
+
+" EasyAlign
+  Bundle "git://github.com/junegunn/vim-easy-align.git"
