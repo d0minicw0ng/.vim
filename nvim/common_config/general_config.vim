@@ -5,6 +5,7 @@
   syntax on
 
 " default color scheme
+  set t_Co=256
   set background=dark
   color twilight2
 
@@ -33,9 +34,6 @@
 " highlight the search matches
   set hlsearch
 
-" searching is case insensitive when all lowercase
-  set ignorecase smartcase
-
 " assume the /g flag on substitutions to replace all matches in a line
   set gdefault
 
@@ -56,6 +54,9 @@
 
 " don't blink the cursor
   set guicursor=a:blinkon0
+
+" highlight current line
+  set cursorline
 
 " show current line info (current/total)
   set ruler rulerformat=%=%l/%L
@@ -116,3 +117,36 @@
 
 " different color for each paren pairs
 let vimclojure#ParenRainbow  = 1
+
+" keep track of the status bar highlight mode (optimization)
+let g:bar_mode = 0
+
+" enable elm formatting
+let g:elm_format_autosave = 1
+let g:elm_classic_highlighting = 1
+
+" change status line color depending on the state of the buffer
+  function! ColorizeStatusLine(...)
+    if a:0 && a:1 == "i" && g:bar_mode != -1
+      let g:bar_mode = -1
+      highlight StatusLine cterm=NONE ctermbg=cyan ctermfg=white guibg=cyan  guifg=white
+    else
+      if &l:modified == g:bar_mode
+        return
+      else
+        if &l:modified
+          highlight StatusLine ctermbg=red ctermfg=white guibg=red  guifg=white
+        else
+          highlight StatusLine cterm=NONE ctermbg=black ctermfg=gray guibg=black  guifg=gray
+        endif
+
+        let g:bar_mode = &l:modified
+      endif
+    endif
+  endfunction
+
+  augroup hi_statusline
+    autocmd!
+    autocmd InsertEnter * call ColorizeStatusLine("i")
+    autocmd InsertLeave,CursorMoved,BufReadPost,BufWritePost * call ColorizeStatusLine()
+  augroup END

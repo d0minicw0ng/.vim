@@ -1,1 +1,4 @@
-.vim/custom_config
+nvim/custom_config
+nvim/custom_preconfig
+nvim/.netrwhist
+nvim/spell

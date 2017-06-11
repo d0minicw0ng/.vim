@@ -1,12 +1,14 @@
-" get out of insert mode with cmd-i
-  imap <D-i> <Esc>
-
 " easy wrap toggling
   nmap <Leader>w :set wrap!<cr>
   nmap <Leader>W :set nowrap<cr>
 
 " shortcut to save all
   nmap <Leader>ss :wa<cr>
+
+" Pytest
+  nmap <Leader>pf <Esc>:Pytest file versbose<CR>
+  nmap <Leader>pc <Esc>:Pytest class versbose<CR>
+  nmap <Leader>pm <Esc>:Pytest method versbose<CR>
 
 " close all other windows (in the current tab)
   nmap gW :only<cr>
@@ -67,7 +69,3 @@
 " insert the path of currently edited file into a command
 " Command mode: Ctrl-P
   cmap <C-S-P> <C-R>=expand("%:p:h") . "/" <cr>
-
-" jump to far right or left of line
-  map L $
-  map H ^
